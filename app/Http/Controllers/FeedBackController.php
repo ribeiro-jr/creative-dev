@@ -16,7 +16,11 @@ class FeedBackController extends Controller
      */
     public function index()
     {
-        //
+        return new JsonResource([
+            'status_code' => 200,
+            'message' => 'success',
+            'data' => FeedBack::all()
+        ]);
     }
 
     /**
@@ -39,22 +43,26 @@ class FeedBackController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\FeedBack  $feedBack
+     * @param  \App\Models\FeedBack  $feedback
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show(FeedBack $feedBack)
+    public function show(FeedBack $feedback)
     {
-        //
+        return new JsonResource([
+            'status_code' => 200,
+            'message' => $feedback ? 'success' : 'empty data',
+            'data' => $feedback
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateFeedBackRequest  $request
-     * @param  \App\Models\FeedBack  $feedBack
+     * @param  \App\Models\FeedBack  $feedback
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(UpdateFeedBackRequest $request, FeedBack $feedBack)
+    public function update(UpdateFeedBackRequest $request, FeedBack $feedback)
     {
         //
     }
@@ -62,10 +70,10 @@ class FeedBackController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\FeedBack  $feedBack
+     * @param  \App\Models\FeedBack  $feedback
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(FeedBack $feedBack)
+    public function destroy(FeedBack $feedback)
     {
         //
     }

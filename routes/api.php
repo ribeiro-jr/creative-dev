@@ -16,21 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'feedbacks'], function () {
 
-    Route::get('/', function () {
-        return response()->json([
-            'status_code' => 200,
-            'message' => 'read all'
-        ]);
-    });
+    Route::get('/', [FeedBackController::class, 'index']);
 
     Route::post('/', [FeedBackController::class, 'store']);
 
-    Route::get('/{feedback}', function () {
-        return response()->json([
-            'status_code' => 200,
-            'message' => 'read'
-        ]);
-    });
+    Route::get('/{feedback}', [FeedBackController::class, 'show']);
 
     Route::patch('/{feedback}', function () {
         return response()->json([
