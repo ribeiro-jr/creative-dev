@@ -13,7 +13,7 @@ class UpdateFeedBackRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class UpdateFeedBackRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|alpha_num|max:14',
+            'phone' => 'required|numeric',
+            'email' => 'required|email',
+            'subject' => 'required|max:100',
+            'body' => 'required|max:500',
         ];
     }
 }

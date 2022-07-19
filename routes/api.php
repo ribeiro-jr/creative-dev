@@ -22,12 +22,7 @@ Route::group(['prefix' => 'feedbacks'], function () {
 
     Route::get('/{feedback}', [FeedBackController::class, 'show']);
 
-    Route::patch('/{feedback}', function () {
-        return response()->json([
-            'status_code' => 200,
-            'message' => 'update'
-        ]);
-    });
+    Route::patch('/{feedback}', [FeedBackController::class, 'update']);
 
     Route::delete('/{feedback}', function () {
         return response()->json([

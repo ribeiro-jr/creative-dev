@@ -64,7 +64,13 @@ class FeedBackController extends Controller
      */
     public function update(UpdateFeedBackRequest $request, FeedBack $feedback)
     {
-        //
+        $updated = $feedback->update($request->validated());
+
+        return new JsonResource([
+            'status_code' => 200,
+            'message' => $updated ? 'updated' : 'can not update',
+            'data' => $feedback
+        ]);
     }
 
     /**
