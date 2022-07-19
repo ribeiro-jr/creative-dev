@@ -24,10 +24,5 @@ Route::group(['prefix' => 'feedbacks'], function () {
 
     Route::patch('/{feedback}', [FeedBackController::class, 'update']);
 
-    Route::delete('/{feedback}', function () {
-        return response()->json([
-            'status_code' => 200,
-            'message' => 'delete'
-        ]);
-    });
+    Route::delete('/{feedback}', [FeedBackController::class, 'destroy']);
 });

@@ -81,6 +81,12 @@ class FeedBackController extends Controller
      */
     public function destroy(FeedBack $feedback)
     {
-        //
+        $deleted = $feedback->delete();
+
+        return new JsonResource([
+            'status_code' => 200,
+            'message' => $deleted ? 'deleted' : 'can not delete',
+            'data' => []
+        ]);
     }
 }
