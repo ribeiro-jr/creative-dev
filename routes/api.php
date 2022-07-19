@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +13,40 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['prefix' => 'feedbacks'], function () {
+
+    Route::get('/', function () {
+        return response()->json([
+            'status_code' => 200,
+            'message' => 'read all'
+        ]);
+    });
+
+    Route::post('/', function () {
+        return response()->json([
+            'status_code' => 200,
+            'message' => 'create'
+        ]);
+    });
+
+    Route::get('/{feedback}', function () {
+        return response()->json([
+            'status_code' => 200,
+            'message' => 'read'
+        ]);
+    });
+
+    Route::patch('/{feedback}', function () {
+        return response()->json([
+            'status_code' => 200,
+            'message' => 'update'
+        ]);
+    });
+
+    Route::delete('/{feedback}', function () {
+        return response()->json([
+            'status_code' => 200,
+            'message' => 'delete'
+        ]);
+    });
 });
