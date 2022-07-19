@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FeedBackController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,12 +23,7 @@ Route::group(['prefix' => 'feedbacks'], function () {
         ]);
     });
 
-    Route::post('/', function () {
-        return response()->json([
-            'status_code' => 200,
-            'message' => 'create'
-        ]);
-    });
+    Route::post('/', [FeedBackController::class, 'store']);
 
     Route::get('/{feedback}', function () {
         return response()->json([
