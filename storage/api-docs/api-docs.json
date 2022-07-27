@@ -1,0 +1,325 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Creative API",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/api",
+            "description": "API for Creative landing page"
+        }
+    ],
+    "paths": {
+        "/feedbacks": {
+            "get": {
+                "tags": [
+                    "FeedBacks"
+                ],
+                "summary": "Show all feedbacks from database",
+                "description": "Returns a list with feedback data",
+                "operationId": "allFeedBacks",
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of feedbacks."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "FeedBacks"
+                ],
+                "summary": "Store a newly created feedback in database",
+                "description": "Returns feedback data",
+                "operationId": "storeFeedBack",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "title": "name",
+                                        "description": "User name",
+                                        "example": "Lorem lipsun"
+                                    },
+                                    "phone": {
+                                        "title": "phone",
+                                        "description": "User phone",
+                                        "example": "Lorem lipsun"
+                                    },
+                                    "email": {
+                                        "title": "email",
+                                        "description": "User email",
+                                        "example": "Lorem lipsun"
+                                    },
+                                    "subject": {
+                                        "title": "subject",
+                                        "description": "The subject of the feedback",
+                                        "example": "Lorem lipsun"
+                                    },
+                                    "body": {
+                                        "title": "body",
+                                        "description": "The body of the feedback",
+                                        "example": "Lorem lipsun"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "name": {
+                                            "title": "name",
+                                            "description": "User name",
+                                            "example": "Lorem lipsun"
+                                        },
+                                        "phone": {
+                                            "title": "phone",
+                                            "description": "User phone",
+                                            "example": "Lorem lipsun"
+                                        },
+                                        "email": {
+                                            "title": "email",
+                                            "description": "User email",
+                                            "example": "Lorem lipsun"
+                                        },
+                                        "subject": {
+                                            "title": "subject",
+                                            "description": "The subject of the feedback",
+                                            "example": "Lorem lipsun"
+                                        },
+                                        "body": {
+                                            "title": "body",
+                                            "description": "The body of the feedback",
+                                            "example": "Lorem lipsun"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/feedbacks/{id}": {
+            "get": {
+                "tags": [
+                    "FeedBacks"
+                ],
+                "summary": "Show a single feedback from database",
+                "description": "Returns feedback data",
+                "operationId": "showFeedBack",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "FeedBack id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "name": {
+                                            "title": "name",
+                                            "description": "User name",
+                                            "example": "Lorem lipsun"
+                                        },
+                                        "phone": {
+                                            "title": "phone",
+                                            "description": "User phone",
+                                            "example": "Lorem lipsun"
+                                        },
+                                        "email": {
+                                            "title": "email",
+                                            "description": "User email",
+                                            "example": "Lorem lipsun"
+                                        },
+                                        "subject": {
+                                            "title": "subject",
+                                            "description": "The subject of the feedback",
+                                            "example": "Lorem lipsun"
+                                        },
+                                        "body": {
+                                            "title": "body",
+                                            "description": "The body of the feedback",
+                                            "example": "Lorem lipsun"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "FeedBacks"
+                ],
+                "summary": "Delete existing feedback",
+                "description": "Deletes a record and returns no content",
+                "operationId": "deleteFeedBack",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Feedback id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "FeedBacks"
+                ],
+                "summary": "Update an existent feedback in database",
+                "description": "Returns feedback data",
+                "operationId": "updateFeedBack",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "FeedBack id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "title": "name",
+                                        "description": "User name",
+                                        "example": "Lorem lipsun"
+                                    },
+                                    "phone": {
+                                        "title": "phone",
+                                        "description": "User phone",
+                                        "example": "Lorem lipsun"
+                                    },
+                                    "email": {
+                                        "title": "email",
+                                        "description": "User email",
+                                        "example": "Lorem lipsun"
+                                    },
+                                    "subject": {
+                                        "title": "subject",
+                                        "description": "The subject of the feedback",
+                                        "example": "Lorem lipsun"
+                                    },
+                                    "body": {
+                                        "title": "body",
+                                        "description": "The body of the feedback",
+                                        "example": "Lorem lipsun"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "name": {
+                                            "title": "name",
+                                            "description": "User name",
+                                            "example": "Lorem lipsun"
+                                        },
+                                        "phone": {
+                                            "title": "phone",
+                                            "description": "User phone",
+                                            "example": "Lorem lipsun"
+                                        },
+                                        "email": {
+                                            "title": "email",
+                                            "description": "User email",
+                                            "example": "Lorem lipsun"
+                                        },
+                                        "subject": {
+                                            "title": "subject",
+                                            "description": "The subject of the feedback",
+                                            "example": "Lorem lipsun"
+                                        },
+                                        "body": {
+                                            "title": "body",
+                                            "description": "The body of the feedback",
+                                            "example": "Lorem lipsun"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}

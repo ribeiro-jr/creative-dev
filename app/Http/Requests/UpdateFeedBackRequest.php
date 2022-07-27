@@ -24,11 +24,11 @@ class UpdateFeedBackRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|alpha_num|max:14',
-            'phone' => 'required|numeric',
-            'email' => 'required|email',
-            'subject' => 'required|max:100',
-            'body' => 'required|max:500',
+            'name' => 'sometimes|alpha_num|max:14',
+            'phone' => 'sometimes|numeric',
+            'email' => 'sometimes|email',
+            'subject' => 'sometimes|max:100',
+            'body' => 'sometimes|max:500',
         ];
     }
 }
