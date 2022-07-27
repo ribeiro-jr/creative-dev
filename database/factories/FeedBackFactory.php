@@ -17,7 +17,7 @@ class FeedBackFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->name(),
+            'name' => fake()->userName(),
             'phone' => fake()->randomNumber(9),
             'email' => fake()->unique()->safeEmail(),
             'subject' => fake()->sentence(),
